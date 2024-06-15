@@ -3,10 +3,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../contexts/AuthProvider";
-import axios from 'axios'
+import axios from "axios";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import useAuth from "../hooks/useAuth";
+
 const Login = () => {
   const [errorMessage, seterrorMessage] = useState("");
-  const { signUpWithGmail, login } = useContext(AuthContext);
+  const { signUpWithGmail, login } = useAuth();
+  const axiosPublic = useAxiosPublic();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,7 +20,8 @@ const Login = () => {
   //react hook form
   const {
     register,
-    handleSubmit, reset,
+    handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -27,17 +32,26 @@ const Login = () => {
       .then((result) => {
         // Signed in
         const user = result.user;
+        const userInfo = {
+          name: data.name,
+          email: data.email,
+        };
+
+        axiosPublic.post("/users", userInfo).then((response) => {
+          // console.log(response);
+          alert("Signin successful!");
+          navigate(from, { replace: true });
+        });
         // console.log(user);
-        alert("Login successful!");
-        navigate(from);
+        // alert("Login successful!");
+        // navigate(from);
         // ...
       })
       .catch((error) => {
         const errorMessage = error.message;
         seterrorMessage("Please provide valid email & password!");
       });
-    reset()
-
+    reset();
   };
 
   // login with google
@@ -51,7 +65,6 @@ const Login = () => {
         };
         axiosPublic.post("/users", userInfo).then((response) => {
           // console.log(response);
-
           alert("Signin successful!");
           navigate("/");
         });
@@ -119,11 +132,10 @@ const Login = () => {
 
           {/* close btn */}
           <Link to="/">
-            <div
-              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-            >
+            <div className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
-            </div></Link>
+            </div>
+          </Link>
 
           <p className="text-center my-2">
             Donot have an account?
@@ -133,7 +145,10 @@ const Login = () => {
           </p>
         </form>
         <div className="text-center space-x-3">
-          <button onClick={handleRegister} className="btn btn-circle hover:bg-green hover:text-white">
+          <button
+            onClick={handleRegister}
+            className="btn btn-circle hover:bg-green hover:text-white"
+          >
             <FaGoogle />
           </button>
           <button className="btn btn-circle hover:bg-green hover:text-white">
@@ -145,7 +160,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

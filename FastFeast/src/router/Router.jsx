@@ -11,6 +11,7 @@ import Login from "../components/Login";
 import Dashboard from "../pages/dashboard/admin/Dashboard"
 import DashboardLayout from "../layout/DashboardLayout"
 import Users from "../pages/dashboard/admin/Users"
+import AddMenu from "../pages/dashboard/admin/AddMenu";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "users",
         element: <Users />,
+      },
+      {
+        path: "add-menu",
+        element: <AddMenu />,
       },
     ]
   }

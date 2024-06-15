@@ -2,12 +2,15 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebookF, FaGithub, FaGoogle, FaRegUser } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import Modal from "./Modal";
+// import Modal from "./Modal";
 import { AuthContext } from "../contexts/AuthProvider";
-import axios from "axios";
+// import axios from "axios";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Signup = () => {
-  const { signUpWithGmail, createUser, updateUserProfile } = useContext(AuthContext);
+  const { signUpWithGmail, createUser, updateUserProfile } =
+    useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,7 +37,7 @@ const Signup = () => {
             email: data.email,
           };
 
-          axios.post("/users", userInfo).then((response) => {
+          axiosPublic.post("/users", userInfo).then((response) => {
             // console.log(response);
             alert("Signin successful!");
             navigate(from, { replace: true });
@@ -47,7 +50,8 @@ const Signup = () => {
         // ..
       });
   };
-  // login with google
+
+  //signup with google
   const handleRegister = () => {
     signUpWithGmail()
       .then((result) => {
@@ -56,7 +60,7 @@ const Signup = () => {
           name: result?.user?.displayName,
           email: result?.user?.email,
         };
-        axios.post("/users", userInfo).then((response) => {
+        axiosPublic.post("/users", userInfo).then((response) => {
           // console.log(response);
 
           alert("Signin successful!");
@@ -68,10 +72,7 @@ const Signup = () => {
   return (
     <div className="max-w-md bg-white shadow w-full mx-auto flex items-center justify-center my-20">
       <div className="mb-5">
-        <form
-          className="card-body"
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
           <h3 className="font-bold text-lg">Please Create An Account!</h3>
           {/* name */}
           <div className="form-control">
@@ -132,17 +133,15 @@ const Signup = () => {
           <div className="text-center my-2">
             Have an account?
             <Link to="/login">
-              <button
-                className="ml-2 underline"
-              >
-                Login here
-              </button>
+              <button className="ml-2 underline">Login here</button>
             </Link>
-
           </div>
         </form>
         <div className="text-center space-x-3">
-          <button onClick={handleRegister} className="btn btn-circle hover:bg-green hover:text-white">
+          <button
+            onClick={handleRegister}
+            className="btn btn-circle hover:bg-green hover:text-white"
+          >
             <FaGoogle />
           </button>
           <button className="btn btn-circle hover:bg-green hover:text-white">

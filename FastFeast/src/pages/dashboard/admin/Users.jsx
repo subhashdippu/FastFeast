@@ -1,21 +1,38 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react'
-import { FaUsers } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import { FaTrashAlt, FaUser, FaUsers } from "react-icons/fa";
+// import Login from "../../../components/Login";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Users = () => {
+    const axiosSecure = useAxiosSecure();
     const { refetch, data: users = [] } = useQuery({
         queryKey: ["users"],
-        queryFn: async () => {
-            const res = await fetch(`http://localhost:6001/users`);
-            return res.json();
-        },
         // queryFn: async () => {
-        //     const res = await axiosSecure.get("/users");
-
-        //     return res.data;
+        //   const res = await fetch(`http://localhost:6001/users`);
+        //   return res.json();
         // },
+        queryFn: async () => {
+            const res = await axiosSecure.get("/users");
+
+            return res.data;
+        },
     });
+    // console.log(users);
+
+    const handleMakeAdmin = (user) => {
+        axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
+            alert(`${user.name} is now Admin`);
+            refetch();
+        });
+    };
+
+    const handleDeleteUser = (user) => {
+        axiosSecure.delete(`/users/${user._id}`).then((res) => {
+            alert(`${user.name} is now Deleted`);
+            refetch();
+        });
+    };
 
     return (
         <div>

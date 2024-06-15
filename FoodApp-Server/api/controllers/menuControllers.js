@@ -1,6 +1,5 @@
 const Menu = require("../model/Menu");
 
-
 const getAllMenuItems = async (req, res) => {
     try {
         const menus = await Menu.find({}).sort({ createdAt: -1 });
@@ -10,6 +9,17 @@ const getAllMenuItems = async (req, res) => {
     }
 };
 
+// post a new menu item
+const postMenuItem = async (req, res) => {
+    const newItem = req.body;
+    try {
+        const result = await Menu.create(newItem);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 module.exports = {
     getAllMenuItems,
+    postMenuItem,
 }
