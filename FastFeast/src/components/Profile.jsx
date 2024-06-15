@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 import avatarImg from "/images/avatar.jpg"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Profile = ({ user }) => {
   const { logOut } = useContext(AuthContext);
@@ -30,8 +30,8 @@ const Profile = ({ user }) => {
             className="drawer-button btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              {user.photoURL? <img alt="" src={user.photoURL} /> : <img alt="" src={avatarImg} />}
-              
+              {user.photoURL ? <img alt="" src={user.photoURL} /> : <img alt="" src={avatarImg} />}
+
             </div>
           </label>
         </div>
@@ -48,6 +48,9 @@ const Profile = ({ user }) => {
             </li>
             <li>
               <a href="/order">Order</a>
+            </li>
+            <li>
+              <Link href="/dashboard">Dashboard</Link>
             </li>
             <li>
               <a>Settings</a>
