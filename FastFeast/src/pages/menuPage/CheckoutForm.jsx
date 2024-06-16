@@ -97,7 +97,7 @@ const CheckoutForm = ({ price, cart }) => {
             </div>
 
             {/* right side */}
-            <div className="md:w-1/2 w-full space-y-3 card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 px-4 py-8">
+            <div className="md:w-1/2 w-full space-y-3 card shrink-0  max-w-sm shadow-2xl bg-base-100 px-4 py-8">
                 <h4 className="text-lg text-white font-semibold">
                     {" "}
                     Process your payment
