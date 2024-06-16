@@ -12,12 +12,12 @@ router.get("/", menuController.getAllMenuItems);
 router.post("/", menuController.postMenuItem);
 
 // delete a menu item
-// router.delete("/:id", menuController.deleteMenuItem);
+router.delete("/:id", menuController.deleteMenuItem);
 
 // // get single menu item
-// router.get("/:id", menuController.singleMenuItem);
+router.get("/:id", menuController.singleMenuItem);
 
 // // update single menu item
-// router.patch("/:id", menuController.updateMenuItem);
+router.patch("/:id", menuController.updateMenuItem);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 // get all the users
 
 const User = require("../model/User");
-// const { trace } = require("../routes/menuRoutes");
+const { trace } = require("../routes/menuRoutes");
 
 const getAllUsers = async (req, res) => {
     try {
@@ -29,7 +29,6 @@ const createUser = async (req, res) => {
     }
 };
 
-
 // deleteUser
 const deleteUser = async (req, res) => {
     const userId = req.params.id;
@@ -45,6 +44,25 @@ const deleteUser = async (req, res) => {
     }
 };
 
+// get admin
+const getAdmin = async (req, res) => {
+    const email = req.params.email;
+    const query = { email: email };
+    try {
+        const user = await User.findOne(query);
+        console.log(user);
+        if (email !== req.decoded.email) {
+            return res.status(403).send({ message: "Forbidden access" });
+        }
+        let admin = false;
+        if (user) {
+            admin = user?.role === "admin";
+        }
+        res.status(200).json({ admin });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 // make the admin
 const makeAdmin = async (req, res) => {
@@ -66,26 +84,6 @@ const makeAdmin = async (req, res) => {
     }
 };
 
-
-// get admin
-const getAdmin = async (req, res) => {
-    const email = req.params.email;
-    const query = { email: email };
-    try {
-        const user = await User.findOne(query);
-        console.log(user);
-        if (email !== req.decoded.email) {
-            return res.status(403).send({ message: "Forbidden access" });
-        }
-        let admin = false;
-        if (user) {
-            admin = user?.role === "admin";
-        }
-        res.status(200).json({ admin });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
 module.exports = {
     getAllUsers,
     createUser,

@@ -1,3 +1,5 @@
+//  get carts acc to email id
+
 const Carts = require("../model/Carts");
 
 const getCartByEmail = async (req, res) => {
@@ -35,6 +37,7 @@ const addToCart = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
 // deleting acart item
 const deleteCart = async (req, res) => {
     const cartId = req.params.id;
@@ -84,11 +87,10 @@ const getSingleCart = async (req, res) => {
     }
 };
 
-
 module.exports = {
     getCartByEmail,
     addToCart,
     deleteCart,
     updateCart,
     getSingleCart,
-}
+};
