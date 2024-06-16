@@ -5,6 +5,9 @@ const port = process.env.PORT || 6001
 const mongoose = require('mongoose')
 require('dotenv').config()
 const jwt = require("jsonwebtoken");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+// console.log(process.env.STRIPE_SECRET_KEY)
+
 // middleware
 app.use(cors())
 app.use(express.json())
@@ -36,6 +39,25 @@ const varifytoken = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1];
     console.log(token)
 }
+
+
+// stripe payment routes
+
+app.post("/create-payment-intent", async (req, res) => {
+    const { price } = req.body;
+    const amount = price * 100;
+
+    // Create a PaymentIntent with the order amount and currency
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: amount,
+        currency: "inr",
+        payment_method_types: ["card"],
+    });
+
+    res.send({
+        clientSecret: paymentIntent.client_secret,
+    });
+});
 
 // import routes
 const menuRoutes = require('./api/routes/menuRoutes')
