@@ -10,7 +10,7 @@
 
 <img src="https://img.shields.io/badge/website-up-greene" />
 
-<pre><center><a href="https://food-app-client-three.vercel.app"><b></b></a></center></pre>
+<pre><center><a href="https://food-app-client-three.vercel.app"><b>https://food-app-client-three.vercel.app</b></a></center></pre>
 
 ## 👨‍💻 Tech Stack Used
 
