@@ -13,8 +13,9 @@ FastFeast is a fully responsive web application designed to facilitate food orde
 <pre><center><a href="https://food-app-client-three.vercel.app"><b>https://food-app-client-three.vercel.app</b></a></center></pre>
 
 ## 👨‍💻 Tech Stack Used
-# Frontend: ReactJS, TailwindCSS, Material UI, JavaScript, Axios, AuthContext, React-icons
-# Backend: Node.js, Express.js, JWT, MongoDB, Firebase
+
+### Frontend: ReactJS, TailwindCSS, Material UI, JavaScript, Axios, AuthContext, React-icons
+### Backend: Node.js, Express.js, JWT, MongoDB, Firebase
 Payment Integration: Stripe, PayPal
 
 ## 🛠️ Installation Steps
