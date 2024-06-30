@@ -4,7 +4,7 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-• Built Responsive website using React, JavaScript, and Tailwind CSS
+• FastFeast aims to provide users with a user-friendly interface to order food from their favorite restaurants with ease. Leveraging a robust backend built with Node.js, Express.js, and MongoDB, FastFeast ensures reliable data storage and management. Secure authentication using JWT ensures user data safety, while integration with Stripe and PayPal enables secure and efficient payment processing.
 
 ## 🚀 View Live Demo
 
