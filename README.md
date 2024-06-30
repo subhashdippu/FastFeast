@@ -4,7 +4,7 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-• FastFeast aims to provide users with a user-friendly interface to order food from their favorite restaurants with ease. Leveraging a robust backend built with Node.js, Express.js, and MongoDB, FastFeast ensures reliable data storage and management. Secure authentication using JWT ensures user data safety, while integration with Stripe and PayPal enables secure and efficient payment processing.
+FastFeast is a fully responsive web application designed to facilitate food ordering. The platform prioritizes user-friendliness, leveraging a robust backend powered by Node.js, Express.js, and MongoDB for efficient data storage and management. Security is paramount with JWT authentication safeguarding user information, while integration with Stripe and PayPal ensures secure and reliable payment processing.
 
 ## 🚀 View Live Demo
 
