@@ -69,7 +69,6 @@ const Order = () => {
                         <td>{item.transitionId}</td>
                         <td>{item.price}</td>
                         <td>{item.status}</td>
-                        {/* <td>${calculateTotalPrice(item).toFixed(2)}</td> */}
                         <td>
                           <Link
                             to="/contact"

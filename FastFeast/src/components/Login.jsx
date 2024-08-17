@@ -38,14 +38,9 @@ const Login = () => {
         };
 
         axiosPublic.post("/users", userInfo).then((response) => {
-          // console.log(response);
           alert("Signin successful!");
           navigate(from, { replace: true });
         });
-        // console.log(user);
-        // alert("Login successful!");
-        // navigate(from);
-        // ...
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -64,7 +59,6 @@ const Login = () => {
           email: result?.user?.email,
         };
         axiosPublic.post("/users", userInfo).then((response) => {
-          // console.log(response);
           alert("Signin successful!");
           navigate("/");
         });

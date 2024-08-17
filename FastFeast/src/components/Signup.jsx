@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebookF, FaGithub, FaGoogle, FaRegUser } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-// import Modal from "./Modal";
+import Modal from "./Modal";
 import { AuthContext } from "../contexts/AuthProvider";
-// import axios from "axios";
+import axios from "axios";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Signup = () => {
@@ -26,7 +26,6 @@ const Signup = () => {
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
-    // console.log(email, password)
     createUser(email, password)
       .then((result) => {
         // Signed up
@@ -61,8 +60,6 @@ const Signup = () => {
           email: result?.user?.email,
         };
         axiosPublic.post("/users", userInfo).then((response) => {
-          // console.log(response);
-
           alert("Signin successful!");
           navigate("/");
         });

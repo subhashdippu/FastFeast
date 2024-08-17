@@ -88,21 +88,6 @@ const router = createBrowserRouter([
 
     ]
   }
-  // {
-  //   path: "/dashboard",
-  //   element: (<PrivateRoute><DashboardLayout /></PrivateRoute>),
-  //   children: [
-  //     {
-  //       path: "",
-  //       element: <Dashboard />
-  //     },
-  //     {
-  //       path: "",
-  //       element: <Users />
-  //     }
-  //   ]
-  // },
-
 ]);
 
 export default router;

@@ -25,9 +25,7 @@ const Modal = () => {
     const password = data.password;
     login(email, password)
       .then((result) => {
-        // Signed in
         const user = result.user;
-        // console.log(user);
         alert("Login successful!");
         navigate(from, { replace: true });
         document.getElementById("my_modal_5").close()

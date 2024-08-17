@@ -8,7 +8,6 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const ManageItems = () => {
     const [menu, , refetch] = useMenu();
     const axiosSecure = useAxiosSecure();
-    //   console.log(menu);
 
     //   handleDeleteItem
     const handleDeleteItem = (item) => {
@@ -23,7 +22,6 @@ const ManageItems = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await axiosSecure.delete(`/menu/${item._id}`);
-                // console.log(res);
                 if (res) {
                     refetch();
                     Swal.fire({
