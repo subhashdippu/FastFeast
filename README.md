@@ -21,6 +21,52 @@ FastFeast is a fully responsive web application designed to facilitate food orde
 ### Payment Integration
  - Stripe, PayPal
 
+## Folder Structure
+```bash
+├── FrontEnd 
+      └── public
+      └── src
+           └── components
+           └── contexts
+           └── firebase
+           └── hooks
+           └── layout
+           └── pages
+                  └── dashboard
+                         └── admin
+                  └── home
+                  └── menuPage
+           └── PrivateRoute
+           └── router
+           └── App.css
+           └── App.jsx
+           └── index.jsx
+           └── main.css
+      └── package.json
+            
+├── BackEnd 
+       └── api
+            └── controllers
+                  └── cartController.js
+                  └── menuControllers.js
+                  └── userController.js
+            └── middleware
+                  └── verifyAdmin.js 
+                  └── verifyToken.js
+            └── models
+                  └── Carts.js 
+                  └── Menu.js
+                  └── Payment.js
+                  └── User.js
+            └── routes
+                  └── cartRoutes.js 
+                  └── menuRoutes.js
+                  └── paymentRouter.js
+                  └── userRoutes.js
+       └── .env
+       └── index.js
+```
+
 ## 🛠️ Installation Steps
 
 Star and Fork the Repo 🌟 and this will keep us motivated.
