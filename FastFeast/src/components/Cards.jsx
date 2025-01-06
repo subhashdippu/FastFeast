@@ -32,7 +32,7 @@ const Cards = ({ item }) => {
       };
 
       axios
-        .post("http://localhost:6001/carts", cartItem)
+        .post("https://backend-for-food-app.onrender.com/carts", cartItem)
         .then((response) => {
           console.log(response);
           if (response) {
