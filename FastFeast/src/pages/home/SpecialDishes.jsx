@@ -83,8 +83,8 @@ const SpecialDishes = () => {
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4 my-20 relative">
       <div className='text-left'>
-        <p className='subtitle'>Customer Favorites</p>
-        <h2 className='title'>Popular Catagories</h2>
+        {/* <p className='subtitle'>Customer Favorites</p> */}
+        <h2 className='secondarytitle'>Inspiration for your first order</h2>
       </div>
       <div className="md:absolute right-3 top-8 mb-10 md:mr-24">
         <button onClick={() => slider?.current?.slickPrev()}
