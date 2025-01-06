@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+import("daisyui").then((daisyui) => {
+  plugins: [daisyui];
+});
+
 export default {
   content: [
     "./index.html",
@@ -15,5 +19,6 @@ export default {
       },
     },
   },
+  //  plugins: [daisyui];
   plugins: [require("daisyui")],
 };
