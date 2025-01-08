@@ -10,7 +10,7 @@ FastFeast is a fully responsive web application designed to facilitate food orde
 
 <img src="https://img.shields.io/badge/website-up-greene" />
 
-<pre><center><a href="https://food-app-client-three.vercel.app"><b>https://food-app-client-three.vercel.app</b></a></center></pre>
+<pre><center><a href="https://foodapp-6d160.web.app"><b>https://foodapp-6d160.web.app</b></a></center></pre>
 
 ## 👨‍💻 Tech Stack Used
 
